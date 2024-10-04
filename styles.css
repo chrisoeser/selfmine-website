@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    margin-top: 140px;
+    background-color: #a4c8a1; /* Earthy green color */
+    color: #3d5b3c; /* Dark green text color */
+    transition: background-color 0.6s ease; /* Smooth background color transition */
+}
+
+.button-primary {
+    background-color: #ffc107; /* Gold color */
+    color: #3d5b3c;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.5s ease, transform 0.3s ease; /* Smooth background and scale effect */
+}
+
+.button-primary:hover {
+    background-color: #ffca28; /* Lighter gold */
+    transform: scale(1.1); /* Button grows slightly on hover */
+}
+
+main {
+    padding: 20px 0;
+}
+
+/* Base styles for navigation */
+nav.overview {
+    background-color: #fffffff1;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Align items */
+    align-items: center; /* Center vertically */
+    transition: all 0.4s ease; /* Smooth transition */
+}
+
+/* Expanded version */
+nav.overview.expanded {
+    padding: 30px; /* Increased padding for expanded view */
+    flex-direction: column; /* Stack items vertically */
+
+}
+
+/* Collapsed version */
+nav.overview.collapsed {
+    padding: 10px; /* Less padding for collapsed view */
+}
+
+/* Normal styles for links */
+nav.overview ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+/* Individual list items */
+nav.overview li {
+    flex: 1; /* Each item takes equal space */
+    text-align: center; /* Center the text */
+}
+
+/* Collapse version styling */
+nav.overview.collapsed ul {
+    display: flex; /* Keep the same layout in the collapsed version */
+}
+
+nav.overview.expanded h1 {
+    margin-bottom: 30px; /* Adjust this value to increase/decrease the gap */
+    font-size: 3em;
+}
+
+nav.overview.collapsed h1 {
+    font-size: 1.5em; /* Smaller font size in collapsed view */
+}
+
+/* Adjust button styles if necessary */
+nav.overview h1 a {
+    padding-bottom: 10px;
+    text-decoration: none;
+    color: #3d5b3c;
+    font-weight: bold;
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+
+.overview a {
+    text-decoration: none;
+    color: #3d5b3c;
+    font-weight: bold;
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+.overview a:hover {
+    color: #6FAF6C; /* Change color on hover */
+}
+
+.feature {
+    min-height: 900px; /* Adjusted for responsive design */
+    margin: 20px 0;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    position: relative;
+    opacity: 0;
+    transform: translateY(100px); /* Start slightly below */
+    transition: opacity 1.2s ease, transform 1.2s ease; /* Slow fade-in and slide-up */
+}
+
+.feature-content {
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for readability */
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.about,
+.cta {
+    min-height: 500px; /* Increased height */
+    padding: 40px;
+    text-align: center;
+    margin: 20px 0; /* Add margin between sections */
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #3d5b3c;
+    color: #fff;
+    opacity: 0;
+    transform: translateY(50px); /* Start below */
+    transition: opacity 1s ease, transform 1s ease; /* Slow transition for footer */
+}
+
+/* Scroll animations */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(100px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .feature {
+        min-height: 300px;
+    }
+
+    .button-primary {
+        font-size: 1em;
+    }
+}
