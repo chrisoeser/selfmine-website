@@ -68,9 +68,19 @@
         <section class="cta" id="cta">
             <h2>Join Us!</h2>
             <p>Sign up to stay updated about the launch of SelfMine!</p>
-            <button class="button-primary" id="registerBtnBottom">Register Your Interest</button>
+            <button class="button-primary" id="registerBtnBottom" onclick="openModal()">Register Your Interest</button>
         </section>
     </main>
+
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal()">&times;</span>
+          <!-- Embed the Google Form -->
+          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfnlMIn_rrcPPlUwAPhu2_IMBSIb_YyyBFcrR2EemHd0GVQzw/viewform?embedded=true" width="100%" height="595" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+
+        </div>
+      </div>
+
 
     <footer>
         <p>&copy; 2024 SelfMine. All rights reserved.</p>

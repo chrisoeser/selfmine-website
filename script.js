@@ -66,3 +66,25 @@ features.forEach(feature => {
 observer.observe(about);
 observer.observe(cta);
 observer.observe(footer); // Add footer to the observer
+
+
+// Function to open the modal
+function openModal() {
+    document.getElementById("registerModal").style.display = "block";
+    document.body.style.overflow = 'hidden'; // Disable scrolling
+}
+
+// Function to close the modal
+function closeModal() {
+    document.getElementById("registerModal").style.display = "none";
+    document.body.style.overflow = 'auto'; // Re-enable scrolling
+}
+
+// Close modal when clicking outside of it
+window.onclick = function(event) {
+    var modal = document.getElementById("registerModal");
+    if (event.target == modal) {
+        modal.style.display = "none";
+        document.body.style.overflow = 'auto'; // Re-enable scrolling
+    }
+}
