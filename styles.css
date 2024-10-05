@@ -15,11 +15,12 @@ body {
 .button-primary {
     background-color: #ffc107; /* Gold color */
     color: #3d5b3c;
-    padding: 15px 30px;
+    padding: 10px 20px;
     border: none;
     border-radius: 5px;
     font-size: 1.2em;
     cursor: pointer;
+    font-weight: bold;
     transition: background-color 0.5s ease, transform 0.3s ease; /* Smooth background and scale effect */
 }
 
@@ -35,56 +36,77 @@ main {
 /* Base styles for navigation */
 nav.overview {
     background-color: #fffffff1;
-    padding: 20px;
-    text-align: center;
+    padding: 20px 30px;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
-    display: flex; /* Use flexbox for layout */
-    justify-content: space-between; /* Align items */
-    align-items: center; /* Center vertically */
-    transition: all 0.4s ease; /* Smooth transition */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: padding 0.4s ease;
 }
 
 /* Expanded version */
-nav.overview.expanded {
-    padding: 30px; /* Increased padding for expanded view */
-    flex-direction: column; /* Stack items vertically */
+nav.overview.expanded .title-container {
+    order: -1;
+    align-self: self-start;
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+nav.overview.expanded .nav-items-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 1vw;
 
 }
 
-/* Collapsed version */
+/* For collapsed view */
 nav.overview.collapsed {
-    padding: 10px; /* Less padding for collapsed view */
+    flex-direction: row;
+    padding: 20px 30px;
 }
 
-/* Normal styles for links */
-nav.overview ul {
+nav.overview.collapsed .nav-items-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-left: 10px;
+}
+
+/* Styling the title container */
+nav.overview .title-container h1 {
+    font-size: 3em;
+    margin: 0;
+    transition: font-size 0.6s ease;
+}
+
+nav.overview.collapsed .title-container h1 {
+    font-size: 2.2em;
+    padding-right: 20px;
+}
+
+/* Styling for nav items and button */
+nav.overview .nav-items-container ul {
     list-style-type: none;
     padding: 0;
+    margin: 0;
     display: flex;
-    justify-content: center;
+    flex: 1;
+    justify-content: flex-start;
 }
 
-/* Individual list items */
-nav.overview li {
-    flex: 1; /* Each item takes equal space */
-    text-align: center; /* Center the text */
+nav.overview .nav-items-container ul li {
+    margin-right: 30px;
 }
 
-/* Collapse version styling */
-nav.overview.collapsed ul {
-    display: flex; /* Keep the same layout in the collapsed version */
-}
-
-nav.overview.expanded h1 {
-    margin-bottom: 30px; /* Adjust this value to increase/decrease the gap */
-    font-size: 3em;
-}
-
-nav.overview.collapsed h1 {
-    font-size: 1.5em; /* Smaller font size in collapsed view */
+nav.overview .nav-items-container a.button-primary {
+    margin-left: auto;
 }
 
 /* Adjust button styles if necessary */
@@ -106,6 +128,11 @@ nav.overview h1 a {
 
 .overview a:hover {
     color: #6FAF6C; /* Change color on hover */
+}
+
+/* Styling for the Join Us button */
+nav.overview.collapsed a.button-primary {
+    order: -1; /* Ensure button is last */
 }
 
 .feature {
@@ -163,10 +190,21 @@ footer {
 
 @media (max-width: 768px) {
     .feature {
-        min-height: 300px;
+        min-height: 600px;
     }
 
-    .button-primary {
-        font-size: 1em;
+    /* Hide the ul list */
+    .overview.expanded .nav-items-container ul,
+    .overview.collapsed .nav-items-container ul {
+        display: none;
     }
+
+    /* Use flexbox to align the button to the right */
+    .overview.collapsed {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        
+    }
+
 }
